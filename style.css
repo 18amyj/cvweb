@@ -1,0 +1,35 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  float: left;
+}
+
+a:link, a:visited {
+  display: block;
+  width: 170px;
+  font-weight: lighter;
+  color: #808080;
+  background-color: #EFEFEF;
+  text-align: center;
+  padding: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a:hover, a:active {
+  background-color: #7A991A;
+}
+
+<!-- Use external CSS style sheet -->
+  ul {list-style: none;padding: 0px;margin: 0px;}
+  li ul {display: none;}
+  ul li a:hover {background: white;}
+  li:hover ul {display: block; position: absolute;}
+  li:hover li {float: none;}
+  li:hover a {background: #EFEFEF;}
+  li:hover li a:hover {background: white;}
+  #drop-nav li ul li {border-top: 0px;}
