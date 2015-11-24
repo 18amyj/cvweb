@@ -2,33 +2,26 @@
 <html>
 
 <head>
-  <title>Introduction to Computer Vision</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
 
 <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
 
-	
-
-  	<div>
-
-  <table width="1000%" height="1000%" background="http://www.noao.edu/image_gallery/images/d4/androa.jpg" cellpadding="5" cellspacing="0">
-<tr>
-<td valign="bottom">
-<p style="color: white; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 50px">
-Introduction to Computer Vision
-</p>
-</td>
-</tr>
-</table>
-
+<div>
+  <table width="100%" height="100%" background="http://www.image-sensors.com/ImageSensors/media/Image-Sensors-2015/News%20article%20image/Am_image.png" cellpadding="5" cellspacing="0">
+    <tr>
+      <td valign="bottom">
+        <p style="color: white; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 50px">
+        Introduction to Computer Vision
+        </p>
+      </td>
+    </tr>
+  </table>
 </div>
 
 
 			
-
-      <!-- Fixed navigation bar -->
+<!-- Fixed navigation bar -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div>
@@ -52,12 +45,53 @@ Introduction to Computer Vision
 </nav>
 
 
-			<h2 style="font-size: 28px; font-weight: 400">What is computer vision?</h2>
-      <body style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 16px">
-			<p>Computer vision is the science of teaching a computer how to interpret images. For computers to emulate visual perception in humans and be able to &quot;see,&quot; researchers must first understand how human vision works. This is exactly what they aimed to do starting in the 1950s. They explored and gained deeper understandings of the inner workings of the human eye.</p>
-			<p style="font-family: 'Roboto', sans-serif; font-weight: 400">The goal of computer vision is to bridge the gap between pixels and meaning.</p>
-			<img src = "#">
-		</div>
+
+<h2 style="font-size: 28px; font-weight: 400">What is computer vision?</h2>
+
+<body style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 16px">
+
+<p>Computer vision is the science of teaching a computer how to perceive, process, and interpret visual data such as images and videos.</p>
+<p style="font-family: 'Roboto', sans-serif; font-weight: 400">The goal of computer vision is to bridge the gap between pixels and meaning.</p>
+<img src = "#">
+<p>However, before computers could emulate visual perception in humans and be able to &quot;see,&quot; researchers had to explore and unravel the inner workings of the human eye. Their findings would set the stage for groundbreaking discoveries in computer vision.</p>
+
+
+
+<!--Timeline-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<script src="../cvweb/d3.v2.min.js" type="application/javascript"></script>
+<script src="../cvweb/timeknots.js" type="application/javascript"></script>
+<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+<body>
+
+  <div class="fluid-row">
+    <div class="well span11 pagination-centered">
+    <h2 style="font-size: 28px; font-weight: 400">Timeline</h2>
+    </div>
+  </div>
+  <div class="fluid-row">
+    <div class="span3">
+      <div id="timeline1" style="width:500px;"></div>
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+    var cvhistory = [
+      {name:"The Summer Vision Project", date: "1966-07-07", img: "http://image.slidesharecdn.com/lecture1-mit6870-or-su-110910071709-phpapp02/95/mit6870-grounding-object-recognition-and-scene-understanding-lecture-1-31-728.jpg?cb=1315641149",},
+      {name:"Hubel and Wiesel",  date:"1962", img: "#"},
+      {name:"Irving Biederman and Molly Potter",   date:"1970s", img: "#"},
+      {name:"Recognition-By-Components", date:  "1987", img: "https://upload.wikimedia.org/wikipedia/commons/2/28/Breakdown_of_objects_into_Geons.png"},
+      {name:"Simon Thorpe", date: "1996", img: "#"},
+      {name:"Change Blindness", date:  "1997", img: "#"},
+    ]
+    TimeKnots.draw("#timeline1", cvhistory, {dateFormat: "%B %Y", color: "teal", width:500, showLabels: true, labelFormat: "%Y"})
+  </script>
+
+</body>
+
+
 
     <div>
 		  <h2 style="font-size: 28px; font-weight: 400">MIT Summer Vision Project</h2>
@@ -93,5 +127,6 @@ Introduction to Computer Vision
 
     </div>
 
-	</body>
+</body>
+
 </html>
