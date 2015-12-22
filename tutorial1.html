@@ -52,32 +52,38 @@
 
   <p style="font-weight: 500">Images as Functions</p>
   <p>We can think of an image, which is comprised of individual pixels, as a function, <i>f</i>. Each pixel also has its own value. For a grayscale image, each pixel would have an intensity between 0 and 255, with 0 being black and 255 being white. <i>f(x,y)</i> would then give the intensity of the image at <i>(x,y)</i>, assuming it is defined over a rectangle, with a finite range: <i>f: [a,b]</i> x <i>[c,d]</i> &#8594; [0, 255].</p>
-  <p>[insert example]</p>
 
   <p>Simply put, a color image is just three functions merged into one. Using an RGB image as an example, the colors are constructed from a combination of Red, Green, and Blue (RGB). The three colors have integer values from 0 to 255, yielding a total of 256*256*256 = 16,777,216 color choices. Each pixel of the image would therefore have three channels and be represented as a 1x3 matrix.</p>
-  <p>[insert example]</p>
 
   <p>An image, then, can be represented as a matrix of pixel values.</p>
-  <p>[insert example]</p>
 
   <p style="font-weight: 500">Image Processing</p>
   <p>There are two sides to image processing: image filtering and image warping. Image filtering changes the range of an image. Image warping changes the domain of an image.</p>
-  <p>[insert graphs/pictures]</p>
 
   <p>We will examine more closely image filtering. The goal of using filters is to extract valuable information from the pictures such as edges, corners, and blobs (See Tutorial 2 to learn more about finding features.) and/or to modify or enhance image properties. Here are some examples of what applying filters can do to make images more visually appealing.</p>
-  <p>[insert example]</p>
 
   <p>Two commonly implemented filters are the moving average filter and image segmentation.</p>
   <p>The moving average filter replaces each pixel with the average pixel value of it and its adjacent pixels. The effect is a more smooth image with sharp features removed.</p>
-  <p>[insert gif]</p>
 
   <p>Image segmentation extracts certain parts of an image based on a threshold. In this example, all pixels with an intensity greater than 100 are replaced with a white pixel (intensity 255) and all others are replaced with a black pixel (intensity 0).</p>
-  <p>[insert example]</p>
 
-  <p style="font-weight: 500">Convolution and Correlation</p>
+  <p style="font-weight: 500">Convolution in 2D</p>
+  <p>No change:</p>
+  <p>Shifted right by one pixel:</p>
+  <p>Blurred:</p>
+
+  <p>Sharpening filter:</p>
+
+  <p>Often times, applying these filters, as seen with the moving average, blurring, and sharpening filters, will produce unwanted artifacts along the edges of the images. To rid of these artifacts, zero padding, edge value replication, mirror extension, or other methods can be used.</p>
+
+  <p style="font-weight: 500">Correlation</p>
+  <p>Correlation measures how similar two signals are. One application of cross correlation is a vision system for a TV remote control with template matching.</p>
 
   <p style="font-weight: 500">Edge Detection</p>
-  
+  <p>In computer vision, edges are sudden discontinuities in an image, which can arise from surface normal, surface color, depth, illumination, or other discontinuities. Edges are important for two main reasons. 1) Most semantic and shape information can be deduced from them, so we can perform object recognition and analyze perspectives and geometry of an image. 2) They are more compact than pixels.</p>
+
+  <p>We can pinpoint where edges occur from an image’s intensity profile. Wherever there is a rapid change in the intensity function indicates an edge.</p>
+
 <a href="tutorials.html">Back</a>
 
 </body>
