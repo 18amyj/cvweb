@@ -50,6 +50,17 @@
 
 <body style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 16px">
 
+  <br></br>
+  <p>The easiest way to match two images is to find similar features. However, images taken at different angles or other things occluding the main focus of the image may cause problems detecting features.</p>
+  <p>A general and basic approach to finding features is to first find unique key points on each image. Then, normalize the content around the key points and compute a local descriptor for it. After doing so, compare and match the local descriptors of the key points on the images. </p>
+  <p>The Harris Detector is one of the many existing detectors used to find key points in images. Corners are common key points that the detector tries to look for because there are significant changes in intensity in all directions. </p>
+
+  <p>The change of intensity for the shift [u,v] is:</p>
+
+  <img src="https://farm1.staticflickr.com/617/23803299872_c893ea37cf.jpg" width="492" height="90" alt="harrisEquation">
+
+
+
 <a href="tutorials.html">Back</a>
 
 
