@@ -82,7 +82,8 @@
   <p style="font-weight: 500">Edge Detection</p>
   <p>In computer vision, edges are sudden discontinuities in an image, which can arise from surface normal, surface color, depth, illumination, or other discontinuities. Edges are important for two main reasons. 1) Most semantic and shape information can be deduced from them, so we can perform object recognition and analyze perspectives and geometry of an image. 2) They are more compact than pixels.</p>
 
-  <p>We can pinpoint where edges occur from an image’s intensity profile. Wherever there is a rapid change in the intensity function indicates an edge.</p>
+  <p>We can pinpoint where edges occur from an image's intensity profile along a row or column of the image. Wherever there is a rapid change in the intensity function indicates an edge, as seen where the function's first derivative has a local extrema. However, plotting the pixel intensities often results in a signal, making it impossible to identify where an edge is by only taking the first derivative of the function. To eliminate image noise and to effectively locate edges, the function is smoothed with the derivative of the Gaussian filter.</p>
+  <p>Building off of this procedure, we can design an edge detector. The optimal edge detector must be accurate, minimizing the number of false positives and false negatives; have precise localization, pinpointing edges at the positions where they actually occur; and have single response, ensuring that only one edge is found where there only is one edge.</p>
 
 <a href="tutorials.html">Back</a>
 
