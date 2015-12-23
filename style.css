@@ -8,6 +8,12 @@ li {
   float: left;
 }
 
+#content{
+  max-width: 1170px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 a:link, a:visited {
   display: block;
   width: 170px;
