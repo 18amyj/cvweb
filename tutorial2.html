@@ -53,15 +53,36 @@
   <br></br>
   <p>The easiest way to match two images is to find similar features. However, images taken at different angles or other things occluding the main focus of the image may cause problems detecting features.</p>
   <p>A general and basic approach to finding features is to first find unique key points on each image. Then, normalize the content around the key points and compute a local descriptor for it. After doing so, compare and match the local descriptors of the key points on the images. </p>
+  <p><b>Harris Detector</b></p>
   <p>The Harris Detector is one of the many existing detectors used to find key points in images. Corners are common key points that the detector tries to look for because there are significant changes in intensity in all directions. </p>
-
+  <p><img src="../Pictures/harris/flat region.png" width="200" height="200" alt="flatregion">&nbsp;&nbsp;"Flat": no change in all directions
+  <p><img src="../Pictures/harris/edge region.png" width="200" height="200" alt="flatregion">&nbsp;&nbsp;"Edge": no change along edge direction</p>
+  <p><img src="../Pictures/harris/corner region.png" width="200" height="200" alt="flatregion">&nbsp;&nbsp;"Corner": significant change in all directions</p>
+  <br>
   <p>The change of intensity for the shift [u,v] is:</p>
 
-  <img src="https://farm1.staticflickr.com/617/23803299872_c893ea37cf.jpg" width="492" height="90" alt="harrisEquation">
+  <img src="../Pictures/harris/harrisEquation1.png" width="492" height="90" alt="harrisEquation">
+
+  <p>The window function can be rectangular or gaussian, where inside the interval is a constant and outside is zero. The change of intensity needs to be maximized, therefore leading to this equation: <br><img src="../Pictures/harris/harrisEquation2.png" width="200" height="60" alt="harrisEquation"><br><img src="../Pictures/harris/harrisEquation3.png" width="200" height="60" alt="harrisEquation"> &nbsp;&nbsp;where Ix and Iy are image derivatives in x and y directions and the dominant gradient directions should align with the x or y axis. 
+  <br>
+  <br>
+  <p>For example, the image derivatives of this image: <img src="../Pictures/harris/example.png" width="200" height="200" alt="example">
+  <br>
+  <p>are&nbsp;&nbsp;<img src="../Pictures/harris/example2.png" width="200" height="200" alt="example">&nbsp;&nbsp;and&nbsp;&nbsp;<img src="../Pictures/harris/example3.png" width="200" height="200" alt="example">
+  <br>
+  <br>
+  <img src="../Pictures/harris/harrisEquation5.png" width="200" height="200">
+  <p>The image above shows how the different values of the lambdas result in whether the region is on an edge, a corner, or neither. By using properties of ellipses, if λ1 and λ2 are both small, the region is “flat”, in other words, the region is not an edge or a corner. If λ1 is small and λ2 is large, or vice versa, the region is an edge. Lastly, if both λ1 and λ2 are large, the result is a corner, which is the goal of the Harris Detector. </p>
+  <p>The final equation: &nbsp;&nbsp; <img src="../Pictures/harris/harrisEquation4.png" width="200" height="60" alt="harrisEquation">&nbsp;&nbsp;decides the position of the corners in an image.</p>
+  <br>
+  <img src="../Pictures/harris/final.png" width="200" height="200" alt="examplefinal">
+  <br>
+  <p>To understand the math concepts more deeply behind the Harris Detector, click <a href="http://www.bmva.org/bmvc/1988/avc-88-023.pdf" class="external">here</a>
+  <br>
+  <br>
 
 
-
-<a href="tutorials.html">Back</a>
+<a href="tutorials.html" class="nav">Back</a>
 
 
 
