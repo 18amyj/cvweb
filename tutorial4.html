@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
+
+<div>
+  <table width="100%" height="100%" background="http://www.image-sensors.com/ImageSensors/media/Image-Sensors-2015/News%20article%20image/Am_image.png" cellpadding="5" cellspacing="0">
+    <tr>
+      <td valign="bottom">
+        <p style="color: white; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 50px">
+        Introduction to Computer Vision
+        </p>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+			
+<!-- Fixed navigation bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="applications.html">Applications</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Learn More
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+            <li><a href="tutorials.html">Tutorials</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+        <br>
+        <br>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<h2 style="font-size: 28px; font-weight: 400">Tutorial 4: Object Recognition</h2>
+
+<body style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 16px">
+  <br>
+  <br>
+  <p>In order to classify objects, a computer needs to recognize what the object is first. For example, there are many types of apples in the world, but in general, they are all classified as apples. A computer needs to be able to recognize that the object has features unique to an apple, and classify it correctly as an apple.</p>
+  <p>Recognizing objects in an image is not an easy task. Many obstacles stand in the way, such as viewpoint variation, different lighting, scale, deformation, occlusion, background clutter, and variations.</p>
+  <br>
+  <p><b>Simple Object Recognition Pipeline</b></p>
+  <img src="Pictures/knn/objectrecognition.png" width="800" height="400"> 
+  <p>The picture above shows general paths for object recognition algorithms. As described in Tutorial 2, images can be described using features. During the training process, the image features are extracted and put into algorithms and result in a learned classifier. At test time, the image features of the testing images are put into the same learned classifier, which will predict the class of the test image.</p>
+  <p>Many algorithms for object recognition rely on pattern recognition using feature-based techniques. Some algorithms include K-NN algorithm and the idea of neural networks. We will also be talking about face recognition. </p>
+  <br>
+  <p><b>K Nearest Neighbor (K-NN)</b></p>
+  <p>First, the K-NN algorithm assigns the input to decision regions that are separated by decision boundaries. The regions are separated based on features.</p>
+  <img src="Pictures/knn/knn1.png" width="400" height="400"> 
+  <p>You want to assign labels of the nearest training data points to the test data point. The number of training data points you take into consideration is the &quot;k&quot; part of K-NN. </p>
+  <p>For example, when k=1,</p>
+  <img src="Pictures/knn/knn2.png" width="400" height="400"> 
+  <p>The nearest point to the test point assigns its label, in this case a red &quot;x&quot;, to the test point. The distance is measured by the Euclidean Distance Formula <img src="Pictures/knn/knn3.png" width="400" height="100"> 
+  <br>
+  <p>When k=5, the labels of the five nearest training points to the test point is taken into consideration. Since there are three green “o” and two red “x”, the test point is assigned as a green “o”. </p>
+  <img src="Pictures/knn/knn4.png" width="400" height="400"> 
+  <p>K-NN algorithm is a simple start to classify points. It has very flexible decision boundaries, depending on the value of k. There are pros and cons for the size of k. If k is too small, it is sensitive to noise because only the points very close to the test point will decide the label of the test point. But if k is too big, the neighbors that decide the label of the test point could include those from other classes, which will mess up the decision. </p>
+  <img src="Pictures/knn/knn5.png" width="400" height="400"> <img src="Pictures/knn/knn6.png" width="410" height="410"> 
+  <p>The good news is, cross validation can help to decide what value of k to use.</p>
+  <p>When using any algorithm for object recognition, a common question always pops up. How well does a learned model generalize from the training data to a new test set? There are two components of generalization error. Bias is how the average model differs from the true model. Variance is how different training models are from each other.</p>
+  <p>The Bias-Variance Trade-off shows that more of one is not necessarily better. Models with few parameters result in a large bias, which is inaccurate. The models are too general, not flexible enough. </p>
+  <img src="Pictures/knn/knn7.png" width="400" height="200"> 
+  <br>
+  <p>Models with too many parameters result in a large variance, which is also inaccurate. The models fit the training model too well, so they are too sensitive to one particular sample. </p>
+  <img src="Pictures/knn/knn8.png" width="400" height="200"> 
+  <br>
+  <p>To read more about K-NN algorithm, click <a href="http://arxiv.org/ftp/arxiv/papers/1007/1007.0085.pdf">here</a></p>
+  <br>
+  <p><b>Neural Networks</b></p>
+  <p>Neural Network is also a great way to classify objects using pattern recognition. To understand more about neural networks, click <a href="http://www.explainthatstuff.com/introduction-to-neural-networks.html">here</a></p>
+  <br>
+  <br>
+  <p>(ADD DIMENSIONALITY REDUCTION(NOT FINISHED))</p>
+  <p><b>Face Recognition</b></p>
+  <p>To humans, it is quite easy to point out human faces in images, whether the faces are facing in different directions. Now, many technological softwares are able to recognize faces, too. For example, Facebook (when tagging friends), surveillance, digital album organizers, and tracking people devices. </p>
+  <img src="Pictures/pca/face.png" width="400" height="200"> 
+  <p><b>PCA</b></p>
+  <p>Principal Component Analysis, or PCA, is an algorithm used to find “principal components” in a face image to distinguish the image from another.</p>
+  <p>An easy way to understand PCA is using this example from <a href="https://georgemdallas.wordpress.com/2013/10/30/principal-component-analysis-4-dummies-eigenvectors-eigenvalues-and-dimension-reduction/">here</a></p>
+  <br>
+  <img src="Pictures/pca/pca1.png" width="400" height="200"> 
+  <p>Say you have an oval of triangles and each triangle is a data point. You want to find a line where the data points are the most spread out when they are projected onto the line. </p>
+  <img src="Pictures/pca/pca2.png" width="400" height="200"> 
+  <p>The horizontal line is the principal component. In more complex situations, eigenvectors and eigenvalues are used to find the principal components.</p>
+  <p>In order to distinguish a person from another, a key method is using eigenvectors of the covariance matrix of the face images. The eigenvectors determine the directions of the feature space. </p>
+  <p>The new data is re-framed in new dimensions.</p>
+  <img src="Pictures/pca/pca3.png" width="400" height="200"> 
+  <br>
+  <p>To understand eigenvectors visually, click <a href="http://setosa.io/ev/eigenvectors-and-eigenvalues/">here</a></p>
+  <br>
+  <br>
+
+<a href="tutorials.html" class="nav">Back</a>
+
+
+
+</body>
+
+</html>
