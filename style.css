@@ -1,4 +1,4 @@
-ul {
+/*ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -6,15 +6,16 @@ ul {
 
 li {
   float: left;
-}
+}*/
 
 #content{
   max-width: 1170px;
   margin-right: auto;
   margin-left: auto;
+  padding: 10px 50px;
 }
 
-a:link, a:visited {
+/*a:link, a:visited {
   display: block;
   width: 170px;
   font-weight: lighter;
@@ -39,8 +40,36 @@ a:hover, a:active {
   li:hover a {background: #EFEFEF;}
   li:hover li a:hover {background: white;}
   #drop-nav li ul li {border-top: 0px;}
+*/
 
 FIGURE, FIGCAPTION {
-  display: block;
-  font-variant: small-caps;
+  font-size: 12px;
+}
+
+#header {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 50px;
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 400;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.section-text {
+  margin-bottom: 40px;
+}
+
+.carousel {
+  max-width: 100%;
+  margin-bottom: 60px;
+}
+
+.carousel img {
+  width: 100%;
 }

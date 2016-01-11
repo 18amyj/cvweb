@@ -3,60 +3,59 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
 </head>
 
-<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
-
+<body style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 16px">
 <div>
-  <table width="100%" height="100%" background="http://www.image-sensors.com/ImageSensors/media/Image-Sensors-2015/News%20article%20image/Am_image.png" cellpadding="5" cellspacing="0">
+  <table width="100%" height=150px background="http://www.image-sensors.com/ImageSensors/media/Image-Sensors-2015/News%20article%20image/Am_image.png">
     <tr>
-      <td valign="bottom">
-        <p style="color: white; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 50px">
+      <td valign="center" id="header" style="font-size: 48px">
         Introduction to Computer Vision
-        </p>
       </td>
     </tr>
   </table>
 </div>
 
-
-			
+      
 <!-- Fixed navigation bar -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<div>
+<nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div>
-      <ul class="nav navbar-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="applications.html">Applications</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Learn More
-            <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-            <li><a href="tutorials.html">Tutorials</a></li>
-            <li><a href="resources.html">Resources</a></li>
-          </ul>
-        </li>
-        <li><a href="about.html">About</a></li>
-        <br>
-        <br>
-      </ul>
-    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="applications.html">Applications</a></li>
+      <li><a href="tutorials.html">Tutorials</a></li>
+      <li class="active"><a href="resources.html">Resources</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
   </div>
 </nav>
+</div>
 
+<body>
 
+  <div id="content">
+  <div class="section-title">Resources</div>
 
-<h2 style="font-size: 28px; font-weight: 400">Resources</h2>
+  <div class="section-text">
+    <p>Click on the links below to read and learn more about computer vision!</p>
+    <ul>
+        <li><a href="http://vision.stanford.edu/teaching/cs131_fall1516/schedule.html">Dr. Fei-Fei Li's computer vision course at Stanford (CS131)</a></li>
+        <li><a href="http://cs231n.stanford.edu/">Convolutional Neural Networks for Visual Recognition course at Stanford (CS231n)</a></li>
+        <li><a href="http://opencv.org/">Open Source Computer Vision</a></li>
+    </ul>
+  </div>
 
-<body style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 16px">
-  <br>
-  <p>Click on the links below to read and learn more about computer vision!</p>
-  <br>
-  <ul>
-      <li><a href="http://vision.stanford.edu/teaching/cs131_fall1516/schedule.html">Dr. Fei-Fei Li's computer vision course at Stanford (CS131)</a></li>
-      <li><a href="http://cs231n.stanford.edu/">Convolutional Neural Networks for Visual Recognition course at Stanford( CS231n)</a></li>
-      <li><a href="http://opencv.org/">Open Source Computer Vision</a></li>
-  </ul>
+  </div>
 
 
 </body>

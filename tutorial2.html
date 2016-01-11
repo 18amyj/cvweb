@@ -3,55 +3,55 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
 </head>
 
-<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
-
+<body style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 16px">
 <div>
-  <table width="100%" height="100%" background="http://www.image-sensors.com/ImageSensors/media/Image-Sensors-2015/News%20article%20image/Am_image.png" cellpadding="5" cellspacing="0">
+  <table width="100%" height=150px background="http://www.image-sensors.com/ImageSensors/media/Image-Sensors-2015/News%20article%20image/Am_image.png">
     <tr>
-      <td valign="bottom">
-        <p style="color: white; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 50px">
+      <td valign="center" id="header" style="font-size: 48px">
         Introduction to Computer Vision
-        </p>
       </td>
     </tr>
   </table>
 </div>
 
-
-			
+      
 <!-- Fixed navigation bar -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<div>
+<nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div>
-      <ul class="nav navbar-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="applications.html">Applications</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Learn More
-            <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-            <li><a href="tutorials.html">Tutorials</a></li>
-            <li><a href="resources.html">Resources</a></li>
-          </ul>
-        </li>
-        <li><a href="about.html">About</a></li>
-        <br>
-        <br>
-      </ul>
-    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="applications.html">Applications</a></li>
+      <li class="active"><a href="tutorials.html">Tutorials</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
   </div>
 </nav>
+</div>
 
+<body>
 
+<div id="content">
 
-<h2 style="font-size: 28px; font-weight: 400">Tutorial 2: Finding Features (Image Matching/Stitching)</h2>
+  <a href="tutorials.html" class="nav">BACK</a>
+  <p></p>
 
-<body style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 16px">
+  <div class="section-title">Tutorial 2: Finding Features (Image Matching/Stitching)</div>
 
-  <br>
-  <br>
+  <div class="section-text">
+
   <p>Image matching is an important concept in computer vision and object recognition. Images of the same item can be taken from any angle, with any lighting and scale. But ultimately, they still show the same item and should be categorized that way. Therefore, it is best to use image matching to find similar features in order to categorize the images.</p>
   <p>Images taken at different angles or other things occluding the main focus of the image may cause problems detecting features.</p>
   <p><b>Key Point Detection</b></p>
@@ -84,8 +84,8 @@
   <p>4.&nbsp;&nbsp;The final equation: &nbsp;&nbsp; <img src="Pictures/harris/harrisEquation4.png" width="200" height="60" alt="harrisEquation">&nbsp;&nbsp;corresponds to the &quot;cornerness&quot; of a location in an image, and the Harris detector uses this to determine key points in the image.</p>
   <br>
   <img src="Pictures/harris/final.png" width="200" height="200" alt="examplefinal">
-  <br>
-  <p>To understand the math concepts more deeply behind the Harris Detector, click <a href="http://www.bmva.org/bmvc/1988/avc-88-023.pdf">here</a>
+  <br></br>
+  <p>To understand the math concepts more deeply behind the Harris Detector, click <a href="http://www.bmva.org/bmvc/1988/avc-88-023.pdf">here</a>.
   <br>
   <br>
   <p><b>SIFT Detector</b></p>
@@ -96,10 +96,12 @@
   <p>The SIFT detector is rotation-invariant and scale-invariant.</p>
   <p>When you have two identical images, except one is scaled differently than the other, SIFT maximizes the Difference of Gaussians (DoG) in scale and in space to find same key points independently in each image. DoG is basically the difference of the Gaussian blurring of an image with different standard deviation, σ. Every octave, or scale, of the image is blurred with Gaussians with  sigmas of different scaling factors. The differences between adjacent Gaussian-blurred images are calculated as DoG. The process is repeated for each octave of scaled image.</p>
   <img src="Pictures/sift/sift2.png" width="600" height="400">
-  <br>
+  <br></br></br>
+
   <p>When the DoG is found, the SIFT detector searches the DoG over scale and space for local extremas, which can be potential keypoints. For example, one pixel (marked with X) in an image is compared with its 26 neighbors (marked with circles) at the current and adjacent scales. If the pixel is greater or smaller than all its neighbors, then it is a local extrema and is a potential keypoint in that scale.</p>
   <img src="Pictures/sift/sift3.png" width="500" height="350">
-  <br>
+  <br></br>
+
   <p>Once the keypoint is found, the next step is to construct a descriptor that contains information of image characteristics around the keypoint yet is not sensitive to rotation and image illumination.</p>
   <p>The steps of building the SIFT descriptor are as following:</p>
   <p>1.&nbsp;&nbsp;Use the Gaussian blurred image associated with the key point’s scale</p>
@@ -117,7 +119,7 @@
   <br>
   <img src="Pictures/sift/sift6.png" width="750" height="350">
   <p>In this example of image retrieval, the training images for two objects are shown on the left. They can be recognized in a cluttered image with extensive occlusion as shown in the middle. The recognition results are shown on the right. The large parallelograms represent the recognized objects with boundaries showing the original training images under the detected affine transformation. Small squares indicate the key points that were matched with the training images.</p>
-  <p>To read more about SIFT detector, click <a href="https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf">here</a>
+  <p>To read more about SIFT detector, click <a href="https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf">here</a>.
   <br>
   <br>
   <p><b>Image Stitching</b></p>
@@ -135,12 +137,12 @@
   <img src="Pictures/panoramic/pan5.png" width="400" height="200"><img src="Pictures/panoramic/pan6.png" width="350" height="200">
   <p>5.&nbsp;&nbsp;Stitch the images - Use the transformation matrix H to stitch together multiple images to create ones like the example below</p>
   <img src="Pictures/panoramic/pan7.png" width="750" height="350">
-  <br>
-  <br>
 
-<a href="tutorials.html" class="nav">Back</a>
+</div>
 
+<a href="tutorials.html" class="nav">BACK</a>
 
+</div>
 
 </body>
 

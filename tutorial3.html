@@ -3,57 +3,61 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
 </head>
 
-<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
-
+<body style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 16px">
 <div>
-  <table width="100%" height="100%" background="http://www.image-sensors.com/ImageSensors/media/Image-Sensors-2015/News%20article%20image/Am_image.png" cellpadding="5" cellspacing="0">
+  <table width="100%" height=150px background="http://www.image-sensors.com/ImageSensors/media/Image-Sensors-2015/News%20article%20image/Am_image.png">
     <tr>
-      <td valign="bottom">
-        <p style="color: white; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 50px">
+      <td valign="center" id="header" style="font-size: 48px">
         Introduction to Computer Vision
-        </p>
       </td>
     </tr>
   </table>
 </div>
 
-
-			
+      
 <!-- Fixed navigation bar -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<div>
+<nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div>
-      <ul class="nav navbar-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="applications.html">Applications</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Learn More
-            <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-            <li><a href="tutorials.html">Tutorials</a></li>
-            <li><a href="resources.html">Resources</a></li>
-          </ul>
-        </li>
-        <li><a href="about.html">About</a></li>
-        <br>
-        <br>
-      </ul>
-    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="applications.html">Applications</a></li>
+      <li class="active"><a href="tutorials.html">Tutorials</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
   </div>
 </nav>
+</div>
 
+<body>
 
+<div id="content">
 
-<h2 style="font-size: 28px; font-weight: 400">Tutorial 3: Clustering and Segmentation</h2>
+  <a href="tutorials.html" class="nav">BACK</a>
+  <p></p>
 
-<body style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 16px">
+  <div class="section-title">Tutorial 3: Clustering and Segmentation</div>
+
+  <div class="section-text">
+
   <p>Another important subject within computer vision is image segmentation. It is the process of dividing an image into different regions based on the characteristics of pixels to identify objects or boundaries to simplify an image and more efficiently analyze it. Segmentation impacts a number of domains, from the filmmaking industry to the field of medicine. For instance, the software behind green screens implements image segmentation to crop out the foreground and place it on a background for scenes that cannot be shot or would be dangerous to shoot in real life. Image segmentation is also used to perform optical character recognition, to track objects in a sequence of images, and to classify terrains, like petroleum reserves, in satellite images. Some medical applications of segmentation include the identification of injured muscle, the measurement of bone and tissue, and the detection of suspicious structures to aid radiologists (Computer Aided Diagnosis, or CAD).</p>
 
   <figure>
     <img src="Pictures3/segmentation.png" alt="Clustering" style="width:469px" height="179px"/>
   </figure>
+  <br></br>
 
   <p>One way to view segmentation is clustering, where pixels sharing certain features such as color, intensity, or texture are grouped together and represented as a single entity.</p>
 
@@ -62,32 +66,37 @@
   <figure>
     <img src="Pictures3/gestalt1.png" alt="Gestalt Theory" style="width:437px" height="203px"/>
   </figure>
+  <br></br>
 
   <p>They identified proximity, similarity, common fate, common region, parallelism, symmetry, continuity, and closure as the factors that make people group certain visual elements together. However, it is difficult to translate these factors into algorithms.</p>
 
   <figure>
     <img src="Pictures3/gestalt2.png" alt="Gestalt Theory" style="width:376px" height="203px"/>
   </figure>
+  <br></br>
 
   <p>The goal of clustering is to group the pixels in an image into "clusters" that are similar in some respect. For example, clustering could involve choosing a certain number of cluster centers, which are representative of the different pixel intensities in the image and assigning each pixel in the image to the center it is the closest or the most similar to.</p>
 
   <figure>
     <img src="Pictures3/clustering.png" alt="Clustering" style="width:532px" height="203px"/>
   </figure>
+  <br></br>
 
   <p>There are several clustering methods, three of which are introduced below. In the examples, we are measuring “similarity” by Euclidean distance.</p>
 
-  <p style="font-weight: 500">Hierarchical Agglomerative Clustering (HAC): a bottom-up algorithm</p>
+  <p><b>Hierarchical Agglomerative Clustering (HAC):</b> a bottom-up algorithm</p>
   <figure>
     <img src="gifs/hac_slides.gif" alt="HAC" style="width:480px" height="332px"/>
   </figure>
+  <br></br>
 
   <p>With K=5:</p>
   <figure>
     <img src="gifs/hac_matlab.gif" alt="HAC" style="width:480px" height="396px"/>
   </figure>
+  <br></br>
 
-  <p style="font-weight: 500">K means: a top-down algorithm</p>
+  <p><b>K means:</b> a top-down algorithm</p>
   <ol>
     <li>Initialize K clusters randomly, or greedily choose K.</li>
     <li>Assign each pixel to the closest center.</li>
@@ -98,11 +107,13 @@
   <figure>
     <img src="Pictures3/kmeans.png" alt="K means" style="width:983px" height="270px"/>
   </figure>
+  <br></br>
 
   <p>With K=5:</p>
   <figure>
     <img src="gifs/k-means.gif" alt="K means" style="width:480px" height="396px"/>
   </figure>
+  <br></br>
 
   <p style="font-weight: 500">Mean Shift</p>
   <ol>
@@ -115,8 +126,10 @@
   <figure>
     <img src="gifs/mean shift.gif" alt="Mean Shift" style="width:480px" height="300px"/>
   </figure>
+  <p></p>
 
-  <p>To read more about the mean shift algorithm, click <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.76.8968&rep=rep1&type=pdf">here</a></p>
+  <p>To read more about the mean shift algorithm, click <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.76.8968&rep=rep1&type=pdf">here</a>.</p>
+  <br></br>
 
   <p style="font-weight: 500">HAC vs. K means vs. Mean Shift</p>
   <ul style="list-style-type:disc">
@@ -125,8 +138,9 @@
     <li>Contrary to K means, mean shift is robust to outliers. However, the output depends on window size, and similar to K means, mean shift can be computationally expensive.</li>
   </ul>
 
+  <br></br>
   <p style="font-weight: 500">Grab Cat</p>
-  <p>A successful segmentation of an image should allow us to separate objects from the background and transfer them from one image to another. Here, we can segment pictures of cats using the k-means algorithm (K = 5) and transfer the adorable felines onto different backgrounds.</p>
+  <p>A successful segmentation of an image should allow us to separate objects from the background and transfer them from one image to another. Here, we can segment pictures of cats using the K means algorithm (K = 5) and transfer the adorable felines onto different backgrounds.</p>
 
   <p>Picture and background:</p>
   <figure>
@@ -134,6 +148,7 @@
     <img src="Pictures3/grabcat/background1.png" alt="Background" style="width:222px" height="150px"/>
   </figure>
 
+  <p></p>
   <p>Segmented: The pixels are partitioned into five groups, shown below. You can select the groups that form the kitten portion, discard the background (image 5, in this case), and move the segmented parts onto a separate background.</p>
   <figure>
     <img src="Pictures3/grabcat/1.1.png" alt="Kitten" style="width:203" height="136"/>
@@ -143,17 +158,21 @@
     <img src="Pictures3/grabcat/1.5.png" alt="Kitten" style="width:203" height="136"/>
   </figure>
 
+  <p></p>
   <p>Final result: A kitty sleeping on a leaf!</p>
   <figure>
     <img src="Pictures3/grabcat/GrabCat1.jpg" alt="Kitten" style="width:222" height="150"/>
   </figure>
+  <br></br>
 
+  <p></p>
   <p>Picture and background:</p>
   <figure>
     <img src="Pictures3/grabcat/cat2.png" alt="Kitten" style="width:260px" height="150px"/>
     <img src="Pictures3/grabcat/background2.png" alt="Background" style="width:222px" height="150px"/>
   </figure>
 
+  <p></p>
   <p>Segmented: Only the segmented pixels in image 1 need to be removed since the rest are a part of the kitten.</p>
   <figure>
     <img src="Pictures3/grabcat/2.1.png" alt="Kitten" style="width:165" height="93"/>
@@ -163,9 +182,17 @@
     <img src="Pictures3/grabcat/2.5.png" alt="Kitten" style="width:165" height="93"/>
   </figure>
 
+  <p></p>
   <p>Final result: A gargantuan kitten on a beach!</p>
   <figure>
     <img src="Pictures3/grabcat/GrabCat2.jpg" alt="Kitten" style="width:222" height="150"/>
   </figure>
+</div>
+
+<a href="tutorials.html" class="nav">BACK</a>
+
+</div>
 
 </body>
+
+</html>
