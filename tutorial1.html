@@ -61,7 +61,7 @@
   </figure>
   <br></br>
 
-  <p>A color image is just a simple extension of this. <i>f(x,y)</i> is now a vector of three values instead of one. Using an RGB image as an example, the colors are constructed from a combination of Red, Green, and Blue (RGB). Therefore, each pixel of the image would have three channels and be represented as a 1x3 matrix. Since the three colors have integer values from 0 to 255, there would be a total of 256*256*256 = 16,777,216 combinations or color choices.</p>
+  <p>A color image is just a simple extension of this. <i>f(x,y)</i> is now a vector of three values instead of one. Using an RGB image as an example, the colors are constructed from a combination of Red, Green, and Blue (RGB). Therefore, each pixel of the image has three channels and is represented as a 1x3 vector. Since the three colors have integer values from 0 to 255, there are a total of 256*256*256 = 16,777,216 combinations or color choices.</p>
 
   <figure>
     <img src="Pictures1/function.png" alt="Color Image as a Function" style="width:254px;height:156px;"/>
@@ -82,21 +82,21 @@
   <br></br>
 
   <p style="font-weight: 500">Image Processing</p>
-  <p>There are two main types of image processing: image filtering and image warping. Image filtering changes the range (i.e. the pixel values) of an image, so the colors of the image are altered without changing the pixel positions, while image warping changes the domain (i.e. the pixel positions) of an image, where points are mapped to points without changing the colors.</p>
+  <p>There are two main types of image processing: image filtering and image warping. Image filtering changes the range (i.e. the pixel values) of an image, so the colors of the image are altered without changing the pixel positions, while image warping changes the domain (i.e. the pixel positions) of an image, where points are mapped to other points without changing the colors.</p>
 
   <figure>
     <img src="Pictures1/processing.png" alt="Image Processing" style="width:625px;height:243px"/>
   </figure>
   <br></br>
 
-  <p>We will examine more closely image filtering. The goal of using filters is to modify or enhance image properties and/or to extract valuable information from the pictures such as edges, corners, and blobs (See Tutorial 2 to learn more about finding features.). Here are some examples of what applying filters can do to make images more visually appealing.</p>
+  <p>We will examine more closely image filtering. The goal of using filters is to modify or enhance image properties and/or to extract valuable information from the pictures such as edges, corners, and blobs. Here are some examples of what applying filters can do to make images more visually appealing.</p>
 
   <figure>
     <img src="Pictures1/filters.png" alt="Image Processing" style="width:557px;height:368px"/>
   </figure>
   <br></br>
 
-  <p>Two commonly implemented filters are the moving average filter and image segmentation.</p>
+  <p>Two commonly implemented filters are the moving average filter and the image segmentation filter.</p>
 
   <p>The moving average filter replaces each pixel with the average pixel value of it and a neighborhood window of adjacent pixels. The effect is a more smooth image with sharp features removed.</p>
 
@@ -110,18 +110,23 @@
     <img src="Pictures1/lena_movingaverage.png" alt="Moving Average" style="width:397px;height:199px"/>
     <figcaption>Note the edge artifact.*</figcaption>
   </figure>
-  <br></br>
+  <p></p>
+  <p><font size="2">*Often times, applying these filters, as seen with the moving average, blurring, and sharpening filters, will produce unwanted artifacts along the edges of the images. To rid of these artifacts, zero padding, edge value replication, mirror extension, or other methods can be used.</font></p>
 
-  <p>Image segmentation is the partitioning of an image into regions where the pixels have similar attributes, so the image is represented in a more simplified manner, and so we can then identify objects and boundaries more easily. There are multiple ways, which will be discussed in detail in Tutorial 3, to perform segmentation. Here, we will look at one simple way it can be implemented based on thresholding. In this example, all pixels with an intensity greater than 100 are replaced with a white pixel (intensity 255) and all others are replaced with a black pixel (intensity 0).</p>
+  <p>Image segmentation is the partitioning of an image into regions where the pixels have similar attributes, so the image is represented in a more simplified manner, and so we can then identify objects and boundaries more easily. There are multiple ways, which will be discussed in detail in <a href="tutorial3.html">Tutorial 3</a>, to perform segmentation. Here, we will look at one simple way it can be implemented based on thresholding. In this example, all pixels with an intensity greater than 100 are replaced with a white pixel (intensity 255) and all others are replaced with a black pixel (intensity 0).</p>
 
   <figure>
     <img src="Pictures1/lena_segmentation.png" alt="Segmentation" style="width:323.6px;height:217.8px"/>
   </figure>
   <br></br>
 
-  <p style="font-weight: 500">Convolution in 2D</p>
+  <p style="font-weight: 500">2D Convolution</p>
 
-  <p>Frequently used for image processing, like smoothing and sharpening images and detecting edges, convolution in 2D operates on two images, with one functioning as the input image and the other, called the kernel, serving as a filter. It expresses the amount overlap of one function as it is shifted over another function, as the output image is produced by sliding the kernel over the input image.</p>
+  <p>The mathematics for many filters can be expressed in a principal manner using 2D convolution, such as smoothing and sharpening images and detecting edges. Convolution in 2D operates on two images, with one functioning as the input image and the other, called the kernel, serving as a filter. It expresses the amount overlap of one function as it is shifted over another function, as the output image is produced by sliding the kernel over the input image.</p>
+
+  <p>For a more formal definition of convolution, click <a href="http://www.cs.cornell.edu/courses/cs1114/2013sp/sections/s06_convolution.pdf">here</a>.</p>
+
+  <p>Let's look at some examples:</p>
 
   <p>No change:</p>
   <figure>
@@ -133,12 +138,14 @@
     <img src="http://i.picasion.com/pic81/1e9f438b81ea70c11088e49b0bfc8bb8.gif" width="450" height="136" alt="Shifted Right"/>
   </figure>
 
-  <p>Blurred:</p>
+  <p>Blurred (you already saw this above):</p>
   <figure>
     <img src="http://i.picasion.com/pic81/97a0ff4b81db67b3aa45d0e62975b9c9.gif" width="450" height="136" alt="Shifted Right"/>
     <figcaption>Note the edge artifact.*</figcaption>
   </figure>
   <br></br>
+
+  <p>Here's a fancier one that is a combination of two filters:</p>
 
   <p>Sharpening filter:</p>
   <p>A sharpening filter can be broken down into two steps: It takes a smoothed image, subtracts it from the original image to obtain the "details" of the image, and adds the "details" to the original image.</p>
@@ -160,15 +167,14 @@
   </figure>
   <br></br>
 
-  <p>For a more formal definition of convolution, click <a href="http://www.cs.cornell.edu/courses/cs1114/2013sp/sections/s06_convolution.pdf">here</a>.</p>
-
-  <p><font size="2">*Often times, applying these filters, as seen with the moving average, blurring, and sharpening filters, will produce unwanted artifacts along the edges of the images. To rid of these artifacts, zero padding, edge value replication, mirror extension, or other methods can be used.</font></p>
-  <br></br>
-
   <p style="font-weight: 500">Correlation</p>
-  <p>While a convolution is a filtering operation, correlation measures the similarity of two data sets, comparing two input signals as they are shifted by one another. When two signals match, the correlation result is maximized.</p>
+  <p>While a convolution is a filtering operation, correlation measures the similarity of two signals, comparing them as they are shifted by one another. When two signals match, the correlation result is maximized.</p>
 
-  <p>One application is is a vision system for a TV remote control with template matching. Based on the hand position of a user, his or her hand acts as a remote control to switch channels, increase or decrease volume, etc.</p>
+  <p>One application is is a vision system for using a hand to remotely control a TV. Template matching, based on correlation, is used to determine the hand position of the user to switch channels, increase or decrease volume, etc.</p>
+
+  <figure>
+    <img src="Pictures1/correlation.png" alt="Correlation" style="width:497px" height="180px"/>
+  </figure>
   <br></br>
 
   <p style="font-weight: 500">Edge Detection</p>
@@ -203,9 +209,9 @@
   </figure>
   <br></br>
 
-  <p>The canny edge detector is arguably the most commonly used edge detector in the field. It detects edges by:</p>
+  <p>The Canny edge detector is arguably the most commonly used edge detector in the field. It detects edges by:</p>
   <ol>
-    <li>Applying the x and y derivatives of Gaussian to the image to eliminate noise, improve localization, and have single response.</li>
+    <li>Applying the x and y derivatives of a Gaussian filter to the image to eliminate noise, improve localization, and have single response.</li>
     <figure>
       <img src="Pictures1/canny1.png" alt="Gaussian" style="width:236px" height="177px"/>
     </figure>
@@ -216,7 +222,7 @@
       <img src="Pictures1/canny2.png" alt="Non-maximum Suppression" style="width:398px" height="177px"/>
     </figure>
     <p></p>
-    <li>Thresholding and linking, also known as hysteresis, to determine the weak and strong edge pixels by defining a low and a high threshold, respectively, and then to link the edge curves with the high threshold first to start with the strong edge pixels, continuing the curves with the low threshold.</li>
+    <li>Thresholding and linking, also known as hysteresis, to create connected edges. The steps are to 1. determine the weak and strong edge pixels by defining a low and a high threshold, respectively, and to 2. link the edge curves with the high threshold first to start with the strong edge pixels, continuing the curves with the low threshold.</li>
   </ol>
 
   <p>Final result:</p>
@@ -231,7 +237,7 @@
   </figure>
   <br></br>
 
-  <p>To read more about the canny edge detector, click <a href="http://cmp.felk.cvut.cz/~cernyad2/TextCaptchaPdf/A%20Computational%20Approach%20to%20Edge%20Detection.pdf">here</a>.</p>
+  <p>To read more about the Canny edge detector, click <a href="http://cmp.felk.cvut.cz/~cernyad2/TextCaptchaPdf/A%20Computational%20Approach%20to%20Edge%20Detection.pdf">here</a>.</p>
 
   <p>RANSAC: RANdom SAmple Consensus</p>
   <p>Line fitting is important in edge detection since many objects are characterized by straight lines. However, edge detection does not always suffice since there can be extra edge points, muddling up which model would be the best, missing parts of lines, and noise. Thus, Fischler and Bolles developed the RANSAC algorithm, which determines a best fit line given a data set and avoids the effect of outliers by finding inliers. Given a scatterplot and a certain threshold, RANSAC randomly selects a sample of points, counts the number of inliers within the threshold, and repeats this process until the maximum number of inliers is hit.</p>
