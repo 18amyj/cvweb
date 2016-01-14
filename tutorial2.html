@@ -48,14 +48,13 @@
   <a href="tutorials.html" class="nav">BACK</a>
   <p></p>
 
-  <div class="section-title">Tutorial 2: Finding Features (Image Matching/Stitching)</div>
+  <div class="section-title">Tutorial 2: Image Matching</div>
 
   <div class="section-text">
 
-  <p>Image matching is an important concept in computer vision and object recognition. Images of the same item can be taken from any angle, with any lighting and scale. But ultimately, they still show the same item and should be categorized that way. Therefore, it is best to use image matching to find similar features in order to categorize the images.</p>
-  <p>Images taken at different angles or other things occluding the main focus of the image may cause problems detecting features.</p>
+  <p>Image matching is an important concept in computer vision and object recognition. Images of the same item can be taken from any angle, with any lighting and scale. This as well as occlusion may cause problems for recognition. But ultimately, they still show the same item and should be categorized that way. Therefore, it is best to find descriptive and invariant features in order to categorize the images.</p>
   <p><b>Key Point Detection</b></p>
-  <p>A general and basic approach to finding features is to first find unique key points, or the most distinctive features, on each image. Then, normalize the content around the key points and compute a local descriptor for it. The local descriptor is a vector of numbers that describes the key point. After doing so, compare and match the local descriptors of the key points on the images.</p>
+  <p>A general and basic approach to finding features is to first find unique key points, or the locations of the most distinctive features, on each image. Then, normalize the content around the key points and compute a local descriptor for it. The local descriptor is a vector of numbers that describes the visual appearance of the key point. After doing so, these can be used to compare and match key points across different images.</p>
   <p><b>Harris Detector</b></p>
   <p>The Harris Detector is one of the many existing detectors that can be used to find key points in images. Corners are common key points that the detector tries to look for because there are significant changes in intensity in all directions.</p>
   <p><img src="Pictures/harris/flat region.png" width="200" height="200" alt="flatregion">&nbsp;&nbsp;"Flat": no change in all directions
@@ -67,11 +66,12 @@
   <p>1.&nbsp;&nbsp;The change of intensity for the shift [u,v] is:</p>
 
   <img src="Pictures/harris/harrisEquation1.png" width="492" height="90" alt="harrisEquation">
+  <p>The window function can be rectangular or gaussian filter, where inside the interval is a constant and outside is zero.</p>
 
-  <p>2.&nbsp;&nbsp;The window function can be rectangular or gaussian filter, where inside the interval is a constant and outside is zero. This can be approximated by the equation below, <br><img src="Pictures/harris/harrisEquation2.png" width="200" height="60" alt="harrisEquation"><br>Where M is: <img src="Pictures/harris/harrisEquation3.png" width="200" height="60" alt="harrisEquation"> 
+  <p>2.&nbsp;&nbsp; The change in intensity can be approximated by the equation below, <br><img src="Pictures/harris/harrisEquation2.png" width="200" height="60" alt="harrisEquation"><br>Where M is: <img src="Pictures/harris/harrisEquation3.png" width="230" height="60" alt="harrisEquation"> 
   <p>The elements of M correspond to whether the region is an edge, corner, or flat region.</p>
   <br>
-  <p>Ix and Iy are image derivatives in x and y directions and the dominant gradient directions should align with the x or y axis.</p>
+  <p>Ix and Iy are image derivatives in the x and y directions and the dominant gradient directions align with the x or y axis, respectively. </p>
   <br>
   <br>
   <p>For example, the image derivatives of this image: <img src="Pictures/harris/example.png" width="200" height="200" alt="example">
@@ -81,7 +81,7 @@
   <br>
   <img src="Pictures/harris/harrisEquation5.png" width="200" height="200">
   <p>3.&nbsp;&nbsp;The image above shows how the different values of the lambdas result in whether the region is on an edge, a corner, or neither. By using properties of ellipses, if &#955;1 and &#955;2 are both small, the region is &quot;flat&quot;, in other words, the region is not an edge or a corner. If &#955;1 is small and &#955;2 is large, or vice versa, the region is an edge. Lastly, if both &#955;1 and &#955;2 are large, the result is a corner, which is the goal of the Harris Detector. </p>
-  <p>4.&nbsp;&nbsp;The final equation: &nbsp;&nbsp; <img src="Pictures/harris/harrisEquation4.png" width="200" height="60" alt="harrisEquation">&nbsp;&nbsp;corresponds to the &quot;cornerness&quot; of a location in an image, and the Harris detector uses this to determine key points in the image.</p>
+  <p>4.&nbsp;&nbsp;The final equation: &nbsp;&nbsp; <img src="Pictures/harris/harrisEquation4.png" width="250" height="60" alt="harrisEquation">&nbsp;&nbsp;corresponds to the &quot;cornerness&quot; of a location in an image, and the Harris detector uses this to determine key points in the image.</p>
   <br>
   <img src="Pictures/harris/final.png" width="200" height="200" alt="examplefinal">
   <br></br>
@@ -90,24 +90,24 @@
   <br>
   <p><b>SIFT Detector</b></p>
   <p>Scale-Invariant Feature Transform (SIFT) is another technique for detecting local features. The Harris Detector, shown above, is rotation-invariant, which means that the detector can still distinguish the corners even if the image is rotated. However, the Harris Detector cannot perform well if the image is scaled differently.</p>
-  <p>For example, in the image below, what seemed like a corner in an image, can become an edge when the image is scaled but the detector is in the same window.</p>
+  <p>For example, in the image below, what seemed like a corner in an image, can become an edge when the image is scaled but the detector is operating over the same window size.</p>
   <img src="Pictures/sift/sift1.png" width="700" height="200">
   <br>
   <p>The SIFT detector is rotation-invariant and scale-invariant.</p>
-  <p>When you have two identical images, except one is scaled differently than the other, SIFT maximizes the Difference of Gaussians (DoG) in scale and in space to find same key points independently in each image. DoG is basically the difference of the Gaussian blurring of an image with different standard deviation, σ. Every octave, or scale, of the image is blurred with Gaussians with  sigmas of different scaling factors. The differences between adjacent Gaussian-blurred images are calculated as DoG. The process is repeated for each octave of scaled image.</p>
+  <p>When you have two identical images, except one is scaled differently than the other, SIFT maximizes the Difference of Gaussians (DoG) in scale and in space to find same key points independently in each image. DoG is basically the difference of the Gaussian blurring of an image with different standard deviation. Every octave, or scale, of the image is blurred with Gaussians with standard deviations of different scaling factors. The differences between adjacent Gaussian-blurred images are calculated as DoG. The process is repeated for each octave of scaled image.</p>
   <img src="Pictures/sift/sift2.png" width="600" height="400">
   <br></br></br>
 
   <p>When the DoG is found, the SIFT detector searches the DoG over scale and space for local extremas, which can be potential keypoints. For example, one pixel (marked with X) in an image is compared with its 26 neighbors (marked with circles) at the current and adjacent scales. If the pixel is greater or smaller than all its neighbors, then it is a local extrema and is a potential keypoint in that scale.</p>
   <img src="Pictures/sift/sift3.png" width="500" height="350">
   <br></br>
-
-  <p>Once the keypoint is found, the next step is to construct a descriptor that contains information of image characteristics around the keypoint yet is not sensitive to rotation and image illumination.</p>
+  <b><p>SIFT Descriptor</p></b>
+  <p>Once the keypoint is found, the next step is to construct a descriptor that contains information of visual characteristics around the keypoint yet is not sensitive to rotation and image illumination.</p>
   <p>The steps of building the SIFT descriptor are as following:</p>
-  <p>1.&nbsp;&nbsp;Use the Gaussian blurred image associated with the key point’s scale</p>
+  <p>1.&nbsp;&nbsp;Use the Gaussian blurred image associated with the key point's scale</p>
   <p>2.&nbsp;&nbsp;Take image gradients over a 16x16 array</p>
   <p>3.&nbsp;&nbsp;Rotate the gradient directions AND locations relative to the keypoint orientation</p>
-  <img src="Pictures/sift/sift4.png" width="700" height="500">
+  <img src="Pictures/sift/sift4.png" width="400" height="300">
   <p>4.&nbsp;&nbsp;Create an array of orientation histograms (a 4x4 array is shown)</p>
   <p>5.&nbsp;&nbsp;Add the rotated gradients into their local orientation histograms with 8 orientation bins</p>
   <img src="Pictures/sift/sift5.png" width="750" height="350">
@@ -118,7 +118,7 @@
   <p><b>Image Retrieval</b></p>
   <br>
   <img src="Pictures/sift/sift6.png" width="750" height="350">
-  <p>In this example of image retrieval, the training images for two objects are shown on the left. They can be recognized in a cluttered image with extensive occlusion as shown in the middle. The recognition results are shown on the right. The large parallelograms represent the recognized objects with boundaries showing the original training images under the detected affine transformation. Small squares indicate the key points that were matched with the training images.</p>
+  <p>In this example of image retrieval, two objects that we want to retrieve are shown on the left. They can be recognized in a cluttered image with extensive occlusion. This image is shown in the middle and the retrieval results are shown on the right. The large parallelograms represent the recognized objects with boundaries showing the original images under the detected affine transformation. Small squares indicate the key points that were matched with the original images.</p>
   <p>To read more about SIFT detector, click <a href="https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf">here</a>.
   <br>
   <br>
@@ -126,18 +126,30 @@
   <p>The goal of panoramic stitching is to stitch multiple images into one panorama by matching the key points found using Harris Detector, SIFT, or other algorithms.</p>
   <img src="Pictures/panoramic/pan1.png" width="750" height="350">
   <br>
+  <br>
   <p>The steps of panoramic stitching are as follows:</p>
   <p>1.&nbsp;&nbsp;Detect keypoints - Calculate Difference of Gaussians to use SIFT detectors to find keypoints</p>
   <img src="Pictures/panoramic/pan2.png" width="750" height="350">
+  <br>
+  <br>
   <p>2.&nbsp;&nbsp;Build the SIFT descriptors - Calculate the 128-dimensional SIFT vector for each keypoint</p>
   <img src="Pictures/panoramic/pan3.png" width="750" height="350">
+  <br>
+  <br>
   <p>3.&nbsp;&nbsp;Match SIFT descriptors - Find Euclidean distance between descriptors</p>
   <img src="Pictures/panoramic/pan4.png" width="750" height="350">
+  <br>
+  <br>
   <p>4.&nbsp;&nbsp;Fit the transformation - Find the transformation matrix H that best fit the relative relationships between matched descriptors</p>
-  <img src="Pictures/panoramic/pan5.png" width="400" height="200"><img src="Pictures/panoramic/pan6.png" width="350" height="200">
+  <img src="Pictures/panoramic/pan5.png" width="200" height="100"><img src="Pictures/panoramic/pan6.png" width="150" height="100">
+  <br>
+  <br>
   <p>5.&nbsp;&nbsp;Stitch the images - Use the transformation matrix H to stitch together multiple images to create ones like the example below</p>
   <img src="Pictures/panoramic/pan7.png" width="750" height="350">
-
+  <br>
+  <br>
+  <br>
+  <p>To understand more about panoramic stitching, click <a href="http://matthewalunbrown.com/papers/ijcv2007.pdf">here</a>.
 </div>
 
 <a href="tutorials.html" class="nav">BACK</a>
