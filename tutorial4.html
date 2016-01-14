@@ -48,51 +48,49 @@
   <a href="tutorials.html" class="nav">BACK</a>
   <p></p>
 
-  <div class="section-title">Tutorial 4: Object Recognition</div>
+  <div class="section-title">Tutorial 4: Image Recognition</div>
 
   <div class="section-text">
 
-  <p>In order to classify objects, a computer needs to recognize what the object is first. For example, there are many types of apples in the world, but in general, they are all classified as apples. A computer needs to be able to recognize that the object has features unique to an apple, and classify it correctly as an apple.</p>
-  <p>Recognizing objects in an image is not an easy task. Many obstacles stand in the way, such as viewpoint variation, different lighting, scale, deformation, occlusion, background clutter, and variations.</p>
+  <p>Image recognition is one of the most widely used tasks from computer vision. It is present in products like Google image search and Facebook's face tagging. </p>
+  <p>Recognizing different objects requires recognizing features unique to that object, but this is not an easy task. Many obstacles stand in the way, such as viewpoint variation, different lighting, scale, deformation, occlusion, background clutter, and variations. </p>
   <br>
   <p><b>Simple Object Recognition Pipeline</b></p>
   <p><img src="Pictures/knn/objectrecognition.png" width="800" height="400"/></p>
-  <p>The picture above shows general paths for object recognition algorithms. As described in Tutorial 2, images can be described using features. During the training process, the image features are extracted and put into algorithms and result in a learned classifier. At test time, the image features of the testing images are put into the same learned classifier, which will predict the class of the test image.</p>
-  <p>Many algorithms for object recognition rely on pattern recognition using feature-based techniques. Some algorithms include K-NN algorithm and the idea of neural networks. We will also be talking about face recognition. </p>
+  <p>The picture above shows the general flow for object recognition algorithms. As described in <a href="tutorial2.html">Tutorial 2</a>, images can be described using features. During the training process, the image features are learned and/or extracted, put into algorithms, and result in a learned classifier. At test time, the image features of the testing images are put into the same learned classifier, which will predict the class of the test image.</p>
+  <p>Many algorithms for object recognition rely on pattern recognition using feature-based techniques. We will describe one simple algorithm that uses this pipeline, the K-NN algorithm. Recently, many state-of-the-art algorithms are based on the concept of <a href="http://www.explainthatstuff.com/introduction-to-neural-networks.html">neural networks</a>. All these algorithms follow the same recognition pipeline.</p>
   <br>
   <p><b>K Nearest Neighbor (K-NN)</b></p>
-  <p>First, the K-NN algorithm assigns the input to decision regions that are separated by decision boundaries. The regions are separated based on features.</p>
+  <p>The K-NN algorithm assigns the input to decision regions that are separated by decision boundaries. The regions are separated based on features.</p>
   <img src="Pictures/knn/knn1.png" width="400" height="400"> 
-  <p>You want to assign labels of the nearest training data points to the test data point. The number of training data points you take into consideration is the &quot;K&quot; part of K-NN. </p>
+  <p>You want to use the labels of the nearest training data points to determine what label to assign the test data point. The number of training data points you take into consideration is the "k" part of K-NN. </p>
   <p>For example, when K=1,</p>
   <img src="Pictures/knn/knn2.png" width="400" height="400"> 
-  <p>The nearest point to the test point assigns its label, in this case a red &quot;x&quot;, to the test point. The distance is measured by the Euclidean Distance Formula <img src="Pictures/knn/knn3.png" width="400" height="100"> 
+  <p>The nearest point to the test point assigns its label, in this case a red "x", to the test point. The distance is measured by the Euclidean Distance Formula <img src="Pictures/knn/knn3.png" width="400" height="100"> 
   <br>
-  <p>When k=5, the labels of the five nearest training points to the test point is taken into consideration. Since there are three green “o” and two red “x”, the test point is assigned as a green “o”. </p>
+  <p>When k=5, the labels of the five nearest training points to the test point is taken into consideration. Since there are three green "o" and two red "x", the test point is assigned as a green "o". </p>
   <img src="Pictures/knn/knn4.png" width="400" height="400"> 
   <p>K-NN algorithm is a simple start to classify points. It has very flexible decision boundaries, depending on the value of K. There are pros and cons for the size of K. If K is too small, it is sensitive to noise because only the points very close to the test point will decide the label of the test point. But if K is too big, the neighbors that decide the label of the test point could include those from other classes, which will mess up the decision. </p>
   <img src="Pictures/knn/knn5.png" width="400" height="400"> <img src="Pictures/knn/knn6.png" width="410" height="410"> 
-  <p>The good news is, cross validation can help to decide what value of K to use.</p>
+  <p>The good news is, cross validation, a model evaluation method, can help to decide what value of K to use.</p>
+   <p>To read more about K-NN algorithm, click <a href="http://arxiv.org/ftp/arxiv/papers/1007/1007.0085.pdf">here</a>.</p>
+  <br>
+  <p><b>Bias-Variance Trade-off</b></p>
   <p>When using any algorithm for object recognition, a common question always pops up. How well does a learned model generalize from the training data to a new test set? There are two components of generalization error. Bias is how the average model differs from the true model. Variance is how different training models are from each other.</p>
   <p>The Bias-Variance Trade-off shows that more of one is not necessarily better. Models with few parameters result in a large bias, which is inaccurate. The models are too general, not flexible enough. </p>
   <img src="Pictures/knn/knn7.png" width="400" height="200"> 
   <br></br>
   <p>Models with too many parameters result in a large variance, which is also inaccurate. The models fit the training model too well, so they are too sensitive to one particular sample. </p>
   <img src="Pictures/knn/knn8.png" width="400" height="200"> 
-  <br></br>
-  <p>To read more about K-NN algorithm, click <a href="http://arxiv.org/ftp/arxiv/papers/1007/1007.0085.pdf">here</a>.</p>
-  <br>
-  <p><b>Neural Networks</b></p>
-  <p>Neural Network is also a great way to classify objects using pattern recognition. To understand more about neural networks, click <a href="http://www.explainthatstuff.com/introduction-to-neural-networks.html">here</a>.</p>
   <br>
   <br>
-  <p>(ADD DIMENSIONALITY REDUCTION(NOT FINISHED))</p>
   <p><b>Face Recognition</b></p>
-  <p>To humans, it is quite easy to point out human faces in images, whether the faces are facing in different directions. Now, many technological softwares are able to recognize faces, too. For example, Facebook (when tagging friends), surveillance, digital album organizers, and tracking people devices. </p>
+  <p>One specific and popular task related to image recognition is face recognition. To humans, it is quite easy to point out human faces in images, whether the faces are facing in different directions. Now, many technological softwares are able to recognize faces, too. For example, Facebook (when tagging friends), surveillance, digital album organizers, and tracking people devices. </p>
   <img src="Pictures/pca/face.png" width="400" height="200"> 
+  <p>We can use standard object pipelines for face recognition. However, the input features we use do not need to be all the pixels from the face. Faces have a lot of structure that we can use to compress the visual image into a lower dimensional representation. We can this Principal Component Analysis. </p>
   <br></br>
   <p><b>PCA</b></p>
-  <p>Principal Component Analysis, or PCA, is an algorithm used to find “principal components” in a face image to distinguish the image from another.</p>
+  <p>Principal Component Analysis, or PCA, is an algorithm used to distinguish one image from another. </p>
   <p>An easy way to understand PCA is using this example from <a href="https://georgemdallas.wordpress.com/2013/10/30/principal-component-analysis-4-dummies-eigenvectors-eigenvalues-and-dimension-reduction/">here</a></p>
   <br>
   <img src="Pictures/pca/pca1.png" width="400" height="200"> 
@@ -104,6 +102,7 @@
   <img src="Pictures/pca/pca3.png" width="400" height="200"> 
   <br>
   <p>To understand eigenvectors visually, click <a href="http://setosa.io/ev/eigenvectors-and-eigenvalues/">here</a>.</p>
+  <p>We can represent a face in a lower dimensional space using the top principal components. Then we can input this into recognition algorithms, such as the ones we have discussed.</p>
   <br>
   <br>
 
