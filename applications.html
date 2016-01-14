@@ -50,6 +50,19 @@
 
     <div class="section-text">
 
+      <p style="font-weight: 500">Image Compression:</p>
+      <p>Often times, raw data is redundant and have patterns. Thus, a more efficient representation of the data would be useful. One way to do this is singular value decomposition (SVD). SVD is an algorithm that factors any matrix A into three matrices U&#931;V<sup>T</sup>, where U and V are rotation matrices and &#931; is a scaling matrix. One of its applications is image compression. SVD of an image matrix produces components of the final image.</p>
+
+      <figure>
+        <img src="ApplicationsPictures/svd1.png" alt="SVD" style="width:175px;height:150px"/>
+        <img src="ApplicationsPictures/svd2.png" alt="SVD" style="width:175px;height:150px"/>
+        <figcaption>Only the first 10 out of 300 principal components of this image are used to compress it.</figcaption>
+      </figure>
+      <p></p>
+
+      <p>As a result, the minimal representation of images and data samples by including only its major patterns with this technique, known as Principal Component Analysis, increases the speed of machine learning algorithms significantly. To learn more about PCA and how it can be used for face detection, click <a href="tutorial4.html">here</a>.</p>
+      <br></br>
+      
       <p style="font-weight: 500">Filters</p>
       <p>We have all heard of image filters in applications like Instagram. Well, computer vision is used to create the enhancing effects! Different filters produce different effects. For example, the moving average filter smoothes an image, while other manipulations can sharpen or denoise an image. To learn more about systems and filters, click <a href="tutorial1.html">here</a>.</p>
 
@@ -66,25 +79,12 @@
       </figure>
       <br></br>
 
-      <p style="font-weight: 500">Segmentation</p>
+      <p style="font-weight: 500">Image Segmentation</p>
       <p>Sometimes, it can be hard to analyze the raw pixels of an image. This is when segmentation comes in handy. Image segmentation is the clustering of pixels into regions based on surfaces, objects, or parts of objects. The divided regions are then represented as a single entity, simplifying the image without losing content. Parts of an image can also be taken and put onto another image. For more information on segmentation, clustering, and some common algorithms used to perform this, click <a href="tutorial3.html">here</a>.</p>
 
       <figure>
         <img src="ApplicationsPictures/segmentation.png" alt="Segmentation" style="width:300px;height:200px"/>
       </figure>
-      <br></br>
-
-      <p style="font-weight: 500">Image Compression:</p>
-      <p>Often times, raw data is redundant and have patterns. Thus, a more efficient representation of the data would be useful. One way to do this is singular value decomposition (SVD). SVD is an algorithm that factors any matrix A into three matrices U&#931;V<sup>T</sup>, where U and V are rotation matrices and &#931; is a scaling matrix. One of its applications is image compression. SVD of an image matrix produces components of the final image.</p>
-
-      <figure>
-        <img src="ApplicationsPictures/svd1.png" alt="SVD" style="width:175px;height:150px"/>
-        <img src="ApplicationsPictures/svd2.png" alt="SVD" style="width:175px;height:150px"/>
-        <figcaption>Only the first 10 out of 300 principal components of this image are used to compress it.</figcaption>
-      </figure>
-      <p></p>
-
-      <p>As a result, the minimal representation of images and data samples by including only its major patterns with this technique, known as Principal Component Analysis, increases the speed of machine learning algorithms significantly. To learn more about PCA and how it can be used for face detection, click <a href="tutorial4.html">here</a>.</p>
       <br></br>
 
       <p style="font-weight: 500">Object Recognition</p>
