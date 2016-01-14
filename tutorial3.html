@@ -48,11 +48,11 @@
   <a href="tutorials.html" class="nav">BACK</a>
   <p></p>
 
-  <div class="section-title">Tutorial 3: Clustering and Segmentation</div>
+  <div class="section-title">Tutorial 3: Image Segmentation</div>
 
   <div class="section-text">
 
-  <p>Another important subject within computer vision is image segmentation. It is the process of dividing an image into different regions based on the characteristics of pixels to identify objects or boundaries to simplify an image and more efficiently analyze it. Segmentation impacts a number of domains, from the filmmaking industry to the field of medicine. For instance, the software behind green screens implements image segmentation to crop out the foreground and place it on a background for scenes that cannot be shot or would be dangerous to shoot in real life. Image segmentation is also used to perform optical character recognition, to track objects in a sequence of images, and to classify terrains, like petroleum reserves, in satellite images. Some medical applications of segmentation include the identification of injured muscle, the measurement of bone and tissue, and the detection of suspicious structures to aid radiologists (Computer Aided Diagnosis, or CAD).</p>
+  <p>Another important subject within computer vision is image segmentation. It is the process of dividing an image into different regions based on the characteristics of pixels to identify objects or boundaries to simplify an image and more efficiently analyze it. Segmentation impacts a number of domains, from the filmmaking industry to the field of medicine. For instance, the software behind green screens implements image segmentation to crop out the foreground and place it on a background for scenes that cannot be shot or would be dangerous to shoot in real life. Image segmentation is also used to track objects in a sequence of images and to classify terrains, like petroleum reserves, in satellite images. Some medical applications of segmentation include the identification of injured muscle, the measurement of bone and tissue, and the detection of suspicious structures to aid radiologists (Computer Aided Diagnosis, or CAD).</p>
 
   <figure>
     <img src="Pictures3/segmentation.png" alt="Clustering" style="width:469px" height="179px"/>
@@ -61,7 +61,7 @@
 
   <p>One way to view segmentation is clustering, where pixels sharing certain features such as color, intensity, or texture are grouped together and represented as a single entity.</p>
 
-  <p>The Gestalt theory provided an approach to image segmentation with a basis in psychology, accounting for factors that cause people to see things as a "unified whole" to extract meaningful information. The fundamental viewpoint of the German Gestalt theorists can be summarized by what Gestalt psychologist Kurt Koffka stated, "The whole is other than the sum of the parts" (often incorrectly translated into "The whole is greater than the sum of the parts").</p>
+  <p>The <a href="http://psychclassics.yorku.ca/Wertheimer/Forms/forms.htm">Gestalt theory</a> provided an approach to image segmentation with a basis in psychology, accounting for factors that cause people to see things as a "unified whole" to extract meaningful information. The fundamental viewpoint of the German Gestalt theorists can be summarized by what Gestalt psychologist Kurt Koffka stated, "The whole is other than the sum of the parts" (often incorrectly translated into "The whole is greater than the sum of the parts").</p>
 
   <figure>
     <img src="Pictures3/gestalt1.png" alt="Gestalt Theory" style="width:437px" height="203px"/>
@@ -82,7 +82,7 @@
   </figure>
   <br></br>
 
-  <p>There are several clustering methods, three of which are introduced below. In the examples, we are measuring “similarity” by Euclidean distance.</p>
+  <p>There are several clustering methods, three of which are introduced below. In the examples, we are measuring "similarity" by Euclidean distance.</p>
 
   <p><b>Hierarchical Agglomerative Clustering (HAC):</b> a bottom-up algorithm</p>
   <figure>
@@ -90,7 +90,7 @@
   </figure>
   <br></br>
 
-  <p>With K=5:</p>
+  <p>With K = 5 clusters:</p>
   <figure>
     <img src="gifs/hac_matlab.gif" alt="HAC" style="width:480px" height="396px"/>
   </figure>
@@ -109,7 +109,7 @@
   </figure>
   <br></br>
 
-  <p>With K=5:</p>
+  <p>With K = 5 clusters:</p>
   <figure>
     <img src="gifs/k-means.gif" alt="K means" style="width:480px" height="396px"/>
   </figure>
