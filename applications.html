@@ -50,32 +50,11 @@
 
     <div class="section-text">
 
-      <p style="font-weight: 500">Singular Value Decomposition (SVD):</p>
-      <p>Often times, raw data sets are redundant and have patterns. Thus, a more efficient representation of the data would be useful. One way to do this is SVD. SVD is an algorithm that factors any matrix A into three matrices U&#931;V<sup>T</sup>, where U and V are rotation matrices and &#931; is a scaling matrix. One of its applications is image compression. SVD of an image matrix produces components of the final image.</p>
-
-      <figure>
-        <img src="ApplicationsPictures/svd1.png" alt="SVD" style="width:175px;height:150px"/>
-        <img src="ApplicationsPictures/svd2.png" alt="SVD" style="width:175px;height:150px"/>
-        <figcaption>Only the first 10 out of 300 principal components of this image are used to compress it.</figcaption>
-      </figure>
-      <p></p>
-
-      <p>As a result, the minimal representation of images and data samples by including only its major patterns with this technique, known as Principal Component Analysis, increases the speed of machine learning algorithms significantly. To learn more about PCA and how it can be used for face detection, click <a href="tutorial4.html">here</a>.</p>
-      <br></br>
-
       <p style="font-weight: 500">Filters</p>
       <p>We have all heard of image filters in applications like Instagram. Well, computer vision is used to create the enhancing effects! Different filters produce different effects. For example, the moving average filter smoothes an image, while other manipulations can sharpen or denoise an image. To learn more about systems and filters, click <a href="tutorial1.html">here</a>.</p>
 
       <figure>
         <img src="ApplicationsPictures/filters.jpg" alt="Filters" style="width:236;height:236"/>
-      </figure>
-      <br></br>
-
-      <p style="font-weight: 500">Object Recognition</p>
-      <p>We often oversee the huge role object recognition plays in our daily lives. Animals rely on it to survive, and it is essential for us as well. One way to locate and identify objects with computer vision is through edge detection. Once we have the intensity profile of an image, we can take its first derivative to pinpoint where edges occur and extract valuable information about the image. For more information about object recognition, click <a href="tutorial4.html">here</a>.</p>
-
-      <figure>
-        <img src="ApplicationsPictures/objectrecognition.jpg" alt="Object Recognition" style="width:630px;height:266px"/>
       </figure>
       <br></br>
 
@@ -95,8 +74,29 @@
       </figure>
       <br></br>
 
-      <p style="font-weight: 500">Optical Flow</p>
-      <p>A video consists of bunch of images captured over time. Optical flow is the pattern of motion of the objects, surfaces, or contours in a scene. The estimation of optical flow between frames can give the velocities of the various elements in the video and be used to track visual features over the video frames.</p>
+      <p style="font-weight: 500">Image Compression:</p>
+      <p>Often times, raw data is redundant and have patterns. Thus, a more efficient representation of the data would be useful. One way to do this is singular value decomposition (SVD). SVD is an algorithm that factors any matrix A into three matrices U&#931;V<sup>T</sup>, where U and V are rotation matrices and &#931; is a scaling matrix. One of its applications is image compression. SVD of an image matrix produces components of the final image.</p>
+
+      <figure>
+        <img src="ApplicationsPictures/svd1.png" alt="SVD" style="width:175px;height:150px"/>
+        <img src="ApplicationsPictures/svd2.png" alt="SVD" style="width:175px;height:150px"/>
+        <figcaption>Only the first 10 out of 300 principal components of this image are used to compress it.</figcaption>
+      </figure>
+      <p></p>
+
+      <p>As a result, the minimal representation of images and data samples by including only its major patterns with this technique, known as Principal Component Analysis, increases the speed of machine learning algorithms significantly. To learn more about PCA and how it can be used for face detection, click <a href="tutorial4.html">here</a>.</p>
+      <br></br>
+
+      <p style="font-weight: 500">Object Recognition</p>
+      <p>We often overlook the huge role object recognition plays in our daily lives. Animals rely on it to survive, and it is essential for us as well. To learn more about object recognition, click <a href="tutorial4.html">here</a>.</p>
+
+      <figure>
+        <img src="ApplicationsPictures/objectrecognition.jpg" alt="Object Recognition" style="width:630px;height:266px"/>
+      </figure>
+      <br></br>
+
+      <p style="font-weight: 500">Tracking</p>
+      <p>A video consists of many images captured over time. Optical flow is the pattern of motion of the objects, surfaces, or contours in a scene. The estimation of optical flow between frames can give the velocities of the various elements in the video and be used to track visual features over the video frames. To learn more about feature tracking, click <a href="http://vision.stanford.edu/teaching/cs131_fall1516/lectures/lecture14_optical_flow_cs131.pdf">here</a>.</p>
 
       <figure>
         <img src="ApplicationsPictures/opticalflow.png" alt="Segmentation" style="width:572px;height:225px"/>
