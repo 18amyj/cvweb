@@ -57,7 +57,7 @@
   <br>
   <p><b>Simple Object Recognition Pipeline</b></p>
   <p><img src="Pictures/knn/objectrecognition.png" width="800" height="400"/></p>
-  <p>The picture above shows the general flow for object recognition algorithms. As described in <a href="tutorial2.html">Tutorial 2</a>, images can be described using features. During the training process, the image features are learned and/or extracted, put into algorithms, and result in a learned classifier. At test time, the image features of the testing images are put into the same learned classifier, which will predict the class of the test image.</p>
+  <p>The picture above shows the general flow for object recognition algorithms. As described in <a href="tutorial2.html">Tutorial 2</a>, images can be described using features. During the training process, the image features are learned and/or extracted, input into algorithms, and result in a learned classifier. At test time, the image features of the testing images are put into the same learned classifier, which will predict the class of the test image.</p>
   <p>Many algorithms for object recognition rely on pattern recognition using feature-based techniques. We will describe one simple algorithm that uses this pipeline, the K-NN algorithm. Recently, many state-of-the-art algorithms are based on the concept of <a href="http://www.explainthatstuff.com/introduction-to-neural-networks.html">neural networks</a>. All these algorithms follow the same recognition pipeline.</p>
   <br>
   <p><b>K Nearest Neighbor (K-NN)</b></p>
@@ -87,10 +87,12 @@
   <p><b>Face Recognition</b></p>
   <p>One specific and popular task related to image recognition is face recognition. To humans, it is quite easy to point out human faces in images, whether the faces are facing in different directions. Now, many technological softwares are able to recognize faces, too. For example, Facebook (when tagging friends), surveillance, digital album organizers, and tracking people devices. </p>
   <img src="Pictures/pca/face.png" width="400" height="200"> 
+  <br>
+  <br>
   <p>We can use standard object pipelines for face recognition. However, the input features we use do not need to be all the pixels from the face. Faces have a lot of structure that we can use to compress the visual image into a lower dimensional representation. We can this Principal Component Analysis. </p>
-  <br></br>
+  <br>
   <p><b>PCA</b></p>
-  <p>Principal Component Analysis, or PCA, is an algorithm used to distinguish one image from another. </p>
+  <p>Principal Component Analysis, or PCA, is an algorithm used to compress data into lower dimensional representations. </p>
   <p>An easy way to understand PCA is using this example from <a href="https://georgemdallas.wordpress.com/2013/10/30/principal-component-analysis-4-dummies-eigenvectors-eigenvalues-and-dimension-reduction/">here</a></p>
   <br>
   <img src="Pictures/pca/pca1.png" width="400" height="200"> 
